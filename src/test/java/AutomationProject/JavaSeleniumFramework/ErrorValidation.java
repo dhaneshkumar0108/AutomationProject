@@ -14,8 +14,16 @@ public class ErrorValidation extends TestBase
 	@Test
 	public void invalidLogin()
 	{
-        landingpage.loginApplication("dhanesh@gmail.com", "India@1234");
+		landingpage.loginApplication("userdummy", "passworddummy");
+		String actualMessage = landingpage.getErrorMessage();
+		Assert.isTrue(actualMessage.equalsIgnoreCase("Epic sadface: Username and password do not match any user in this service"), "Incorrect Error Message");
+    }
+	
+	@Test
+	public void LockedOutUser()
+	{
+        landingpage.loginApplication("locked_out_user", "secret_sauce");
         String message = landingpage.getErrorMessage();
-		Assert.isTrue(message.equalsIgnoreCase("Incorrect email or passwords."), "Incorrect Error Message");
+		Assert.isTrue(message.equalsIgnoreCase("Sorry, this user has been locked out."), "Incorrect Error Message");
     }
 }

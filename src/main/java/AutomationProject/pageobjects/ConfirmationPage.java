@@ -1,6 +1,5 @@
 package AutomationProject.pageobjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,10 +17,8 @@ public class ConfirmationPage extends PageBase{
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(css = ".hero-primary")
+	@FindBy(css = ".complete-header")
 	WebElement confirmationMsg;	
-	
-	By results= By.cssSelector(".ta-results");
 	
 	public String getConfirmationMessage() {
 		return confirmationMsg.getText();

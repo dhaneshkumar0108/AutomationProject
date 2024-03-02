@@ -17,20 +17,10 @@ public class Header extends PageBase{
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(css = "[routerlink*='cart']")
+	@FindBy(css = ".shopping_cart_link")
 	WebElement cart;
-	
-	@FindBy(css = "[routerlink*='myorders']")
-	WebElement orderHeader;
 	
 	public void goToCartPage() {
 		cart.click();
-	}
-
-	public OrderPage goToOrdersPage()
-	{
-		orderHeader.click();
-		OrderPage orderPage = new OrderPage(driver);
-		return orderPage;
 	}
 }

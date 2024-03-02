@@ -7,7 +7,7 @@ import AutomationProject.pageobjects.CartPage;
 import AutomationProject.pageobjects.CheckOutPage;
 import AutomationProject.pageobjects.ConfirmationPage;
 import AutomationProject.pageobjects.Header;
-import AutomationProject.pageobjects.OrderPage;
+import AutomationProject.pageobjects.OverviewPage;
 import AutomationProject.pageobjects.ProductCatalogue;
 import dev.failsafe.internal.util.Assert;
 
@@ -22,15 +22,15 @@ public class SubmitOrder extends TestBase
 	public CheckOutPage checkoutpage;
 	public ConfirmationPage confirmationpage;
 	public Header header;
-	public OrderPage orderspage;
+	public OverviewPage overviewpage;
 	
-	String productName = "ZARA COAT 3";
+	String productName = "Sauce Labs Backpack";
 	
 	
 	@Test
 	public void submitOrder() throws InterruptedException
 	{
-        landingpage.loginApplication("dhanesh@gmail.com", "India@123");
+        landingpage.loginApplication("standard_user", "secret_sauce");
         productcatalogue = new ProductCatalogue(driver);
         productcatalogue.addProductToCart(productName);
         header = new Header(driver);
@@ -41,21 +41,14 @@ public class SubmitOrder extends TestBase
 		Assert.isTrue(match, "no match");
 		cartpage.goToCheckoutPage();
 		checkoutpage = new CheckOutPage(driver);
-		checkoutpage.selectCountry("india");
-		checkoutpage.placeOrder();
+		checkoutpage.checkOutInfo("Dhanesh","kumar","12601");
+		checkoutpage.goToCheckoutOverviewPage();
+		
+		overviewpage = new OverviewPage(driver);
+		overviewpage.confirmOrder();
 		
 		confirmationpage = new ConfirmationPage(driver);
 		String confirmMessage = confirmationpage.getConfirmationMessage();
-		Assert.isTrue(confirmMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."), "Wrong Confirmation Message");
+		Assert.isTrue(confirmMessage.equalsIgnoreCase("Thank you for your order!"), "Wrong Confirmation Message");
     }
-	
-	@Test(dependsOnMethods= {"submitOrder"})
-	public void OrderHistoryTest()
-	{
-		landingpage.loginApplication("dhanesh@gmail.com", "India@123");
-		header = new Header(driver);
-		header.goToOrdersPage();
-		orderspage = new OrderPage(driver);
-		Assert.isTrue(orderspage.VerifyOrderDisplay(productName), "Order doesn't Exist");
-	}
 }

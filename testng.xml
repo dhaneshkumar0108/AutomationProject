@@ -4,14 +4,14 @@
 <listeners>
 	<listener class-name="AutomationProject.Base.Listeners"/>
 </listeners>
-  <test thread-count="5" name="Submit Order Test">
+  <test thread-count="2" name="Submit Order Test">
     <classes>
-      <class name="AutomationProject.JavaSeleniumFramework.SubmitOrder"/>
+      <class name="runner.TestngRunner"/>
     </classes>
   </test> <!-- Test -->
-  <test thread-count="5" name="Error Validation Test">
+  <!-- <test thread-count="2" name="Error Validation Test">
     <classes>
       <class name="AutomationProject.JavaSeleniumFramework.ErrorValidation"/>
     </classes>
-  </test>
+  </test>  -->
 </suite> <!-- Suite -->

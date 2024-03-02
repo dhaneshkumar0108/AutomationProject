@@ -16,23 +16,24 @@ import AutomationProject.resources.ExtentReporter;
 public class Listeners extends TestBase implements ITestListener{
 	ExtentTest test;
 	ExtentReports extent = ExtentReporter.getReport();
-
+	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>(); 
 	@Override
     public void onTestStart(ITestResult result) {
 		test = extent.createTest(result.getMethod().getMethodName());
+		extentTest.set(test);
     }	
 	@Override
     public void onTestSuccess(ITestResult result) {
-        test.log(Status.PASS, "Test case passed");
+        extentTest.get().log(Status.PASS, "Test case passed");
     }
 	
 	@Override
     public void onTestFailure(ITestResult result) {
-        test.fail(result.getThrowable());
+		extentTest.get().fail(result.getThrowable());
         try {
         	driver = (WebDriver) result.getTestClass().getRealClass().getField("driver")
 					.get(result.getInstance());
-			test.addScreenCaptureFromPath(getScreenshot(result.getMethod().getMethodName(), driver), result.getMethod().getMethodName());
+			extentTest.get().addScreenCaptureFromPath(getScreenshot(result.getMethod().getMethodName(), driver), result.getMethod().getMethodName());
 		} catch (IOException | IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

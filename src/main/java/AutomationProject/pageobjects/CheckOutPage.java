@@ -18,32 +18,28 @@ public class CheckOutPage extends PageBase{
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(css = "[placeholder='Select Country']")
-	WebElement selectCountry;
+	@FindBy(id = "first-name")
+	WebElement firstName;
 	
-	@FindBy(css = ".totalRow button")
-	WebElement checkOutBtn;
+	@FindBy(id = "last-name")
+	WebElement lastName;
 	
-	@FindBy(xpath = "(//button[contains(@class,'ta-item')])[2]")
-	WebElement searchResult;
+	@FindBy(xpath = "//input[@id='postal-code']")
+	WebElement zipCode;
 	
-	@FindBy(xpath = "//a[text()='Place Order ']")
-	WebElement placeOrder;
+	@FindBy(id = "continue")
+	WebElement checkOutOverviewBtn;
 	
 	By results= By.cssSelector(".ta-results");
 	
-	public void selectCountry(String countryName) {
-		setValue(selectCountry, countryName);
-		waitForElementVisible(results);
-		searchResult.click();
+	public void checkOutInfo(String firstNameVal, String lastNameVal, String zipCodeVal) {
+		setValue(firstName, firstNameVal);
+		setValue(lastName, lastNameVal);
+		setValue(zipCode, zipCodeVal);
 	}
 	
-	public void goToCheckoutPage() {
-		checkOutBtn.click();
-	}
-	
-	public void placeOrder() {
-		javascriptExecutorClick(placeOrder);
+	public void goToCheckoutOverviewPage() {
+		checkOutOverviewBtn.click();
 	}
 
 }

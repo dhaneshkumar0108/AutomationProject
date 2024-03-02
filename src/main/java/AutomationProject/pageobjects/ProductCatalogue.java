@@ -20,31 +20,21 @@ public class ProductCatalogue extends PageBase {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(css = ".mb-3")
+	@FindBy(css = ".inventory_item")
 	List<WebElement> products;
 	
-	
-	By productsBy = By.cssSelector(".mb-3");
-	By productsNameBy = By.cssSelector("b");
-	By addToCart = By.cssSelector(".card-body button:last-of-type");
-	By toastMessage = By.cssSelector("#toast-container");
-	By spinner = By.cssSelector(".ng-animating");
-	
-	public List<WebElement> getProductList() {
-		waitForElementVisible(productsBy);
-		return products;
-	}
+	By productsNameBy = By.xpath("//div[contains(@class,'inventory_item_name')]");
+	By addToCart = By.xpath("//button[contains(@id,'add-to-cart')]");
+	By removeFromCart = By.xpath("//button[contains(@id,'remove')]");
 	
 	public WebElement getProductsByName(String productName) {
 		return products.stream().filter(product -> product.findElement(productsNameBy).getText().equals(productName)).findFirst().orElse(null);
 	}
 	
-	public void addProductToCart(String productName) throws InterruptedException {
+	public void addProductToCart(String productName) {
 		WebElement prod = getProductsByName(productName);
 		prod.findElement(addToCart).click();
-		waitForElementVisible(toastMessage);
-//		waitForElementInvisible(spinner);
-		Thread.sleep(2000);
+		waitForElementVisible(removeFromCart);
 	}
 	
 }

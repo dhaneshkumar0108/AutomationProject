@@ -19,10 +19,10 @@ public class CartPage extends PageBase{
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(css = ".cartSection h3")
+	@FindBy(css = ".inventory_item_name")
 	List<WebElement> cartProducts;
 	
-	@FindBy(css = ".totalRow button")
+	@FindBy(id = "checkout")
 	WebElement checkOutBtn;
 	
 	public Boolean verifyProductDisplay(String productName) {

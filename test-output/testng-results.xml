@@ -1,17 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="2" failed="1" skipped="0">
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-02-25T23:33:58 IST" name="Suite" finished-at="2024-02-25T23:34:14 IST" duration-ms="16234">
+  <suite started-at="2024-03-02T11:59:22 IST" name="Default suite" finished-at="2024-03-02T11:59:31 IST" duration-ms="9381">
     <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestngRunner@2ea41516]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
     </groups>
-    <test started-at="2024-02-25T23:33:58 IST" name="Error Validation Test" finished-at="2024-02-25T23:34:06 IST" duration-ms="7885">
-      <class name="AutomationProject.JavaSeleniumFramework.ErrorValidation">
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:AutomationProject.JavaSeleniumFramework.ErrorValidation@4716be8b]" started-at="2024-02-25T23:33:58 IST" name="launchApplication" finished-at="2024-02-25T23:34:02 IST" duration-ms="4109" status="PASS">
+    <test started-at="2024-03-02T11:59:22 IST" name="Default test" finished-at="2024-03-02T11:59:31 IST" duration-ms="9381">
+      <class name="runner.TestngRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.TestngRunner@2ea41516]" started-at="2024-03-02T11:59:22 IST" name="setUpClass" finished-at="2024-03-02T11:59:23 IST" duration-ms="1190" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@78cd163b]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- launchApplication -->
-        <test-method signature="invalidLogin()[pri:0, instance:AutomationProject.JavaSeleniumFramework.ErrorValidation@4716be8b]" started-at="2024-02-25T23:34:02 IST" name="invalidLogin" finished-at="2024-02-25T23:34:05 IST" duration-ms="3172" status="FAIL">
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestngRunner@2ea41516]" started-at="2024-03-02T11:59:23 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-03-02T11:59:28 IST" duration-ms="4761" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Invalid/lockedout login credentials"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Error validation in sauce demo ecommerce website"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestngRunner@2ea41516]" started-at="2024-03-02T11:59:28 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-03-02T11:59:31 IST" duration-ms="3321" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Invalid/lockedout login credentials"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Error validation in sauce demo ecommerce website"]]>
+              </value>
+            </param>
+          </params>
           <exception class="java.lang.IllegalArgumentException">
             <message>
               <![CDATA[Incorrect Error Message]]>
@@ -19,69 +57,19 @@
             <full-stacktrace>
               <![CDATA[java.lang.IllegalArgumentException: Incorrect Error Message
 at dev.failsafe.internal.util.Assert.isTrue(Assert.java:29)
-at AutomationProject.JavaSeleniumFramework.ErrorValidation.invalidLogin(ErrorValidation.java:19)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.access$000(SuiteRunner.java:28)
-at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:418)
-at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
-at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-at java.base/java.lang.Thread.run(Thread.java:833)
+at AutomationProject.StepDefinitions.StepDefinitionImp.verify_the_errormessage(StepDefinitionImp.java:75)
+at ✽.verify the 'Sorry, this user has been locked out.'(file:///C:/Users/ADMIN/eclipse-workspace4/JavaSeleniumFramework/src/test/java/features/ErrorValidation.feature:8)
 ]]>
             </full-stacktrace>
           </exception> <!-- java.lang.IllegalArgumentException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- invalidLogin -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:AutomationProject.JavaSeleniumFramework.ErrorValidation@4716be8b]" started-at="2024-02-25T23:34:06 IST" name="tearDown" finished-at="2024-02-25T23:34:06 IST" duration-ms="127" status="PASS">
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.TestngRunner@2ea41516]" started-at="2024-03-02T11:59:31 IST" name="tearDownClass" finished-at="2024-03-02T11:59:31 IST" duration-ms="48" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- AutomationProject.JavaSeleniumFramework.ErrorValidation -->
-    </test> <!-- Error Validation Test -->
-    <test started-at="2024-02-25T23:33:58 IST" name="Submit Order Test" finished-at="2024-02-25T23:34:14 IST" duration-ms="16234">
-      <class name="AutomationProject.JavaSeleniumFramework.SubmitOrder">
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:AutomationProject.JavaSeleniumFramework.SubmitOrder@4ddbbdf8]" started-at="2024-02-25T23:33:58 IST" name="launchApplication" finished-at="2024-02-25T23:34:06 IST" duration-ms="8119" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchApplication -->
-        <test-method signature="submitOrder()[pri:0, instance:AutomationProject.JavaSeleniumFramework.SubmitOrder@4ddbbdf8]" started-at="2024-02-25T23:34:06 IST" name="submitOrder" finished-at="2024-02-25T23:34:11 IST" duration-ms="4377" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- submitOrder -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:AutomationProject.JavaSeleniumFramework.SubmitOrder@4ddbbdf8]" started-at="2024-02-25T23:34:11 IST" name="tearDown" finished-at="2024-02-25T23:34:11 IST" duration-ms="176" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:AutomationProject.JavaSeleniumFramework.SubmitOrder@4ddbbdf8]" started-at="2024-02-25T23:34:11 IST" name="launchApplication" finished-at="2024-02-25T23:34:13 IST" duration-ms="2544" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchApplication -->
-        <test-method signature="OrderHistoryTest()[pri:0, instance:AutomationProject.JavaSeleniumFramework.SubmitOrder@4ddbbdf8]" started-at="2024-02-25T23:34:13 IST" name="OrderHistoryTest" finished-at="2024-02-25T23:34:14 IST" depends-on-methods="AutomationProject.JavaSeleniumFramework.SubmitOrder.submitOrder" duration-ms="826" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- OrderHistoryTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:AutomationProject.JavaSeleniumFramework.SubmitOrder@4ddbbdf8]" started-at="2024-02-25T23:34:14 IST" name="tearDown" finished-at="2024-02-25T23:34:14 IST" duration-ms="145" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- AutomationProject.JavaSeleniumFramework.SubmitOrder -->
-    </test> <!-- Submit Order Test -->
-  </suite> <!-- Suite -->
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- runner.TestngRunner -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

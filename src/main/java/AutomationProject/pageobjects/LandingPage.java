@@ -17,16 +17,16 @@ public class LandingPage extends PageBase{
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(id = "userEmail")
+	@FindBy(id = "user-name")
 	WebElement userEmail;
 	
-	@FindBy(id = "userPassword")
+	@FindBy(id = "password")
 	WebElement userPassword;
 	
-	@FindBy(id = "login")
+	@FindBy(id = "login-button")
 	WebElement login;
 	
-	@FindBy(xpath = "//div[@aria-label='Incorrect email or password.']")
+	@FindBy(xpath = "//div[contains(@class,'error-message')]")
 	WebElement errorMsg;
 	
 	public void loginApplication(String username, String password)
@@ -38,7 +38,7 @@ public class LandingPage extends PageBase{
 	
 	public void goTo()
 	{
-		driver.get("https://rahulshettyacademy.com/client");
+		driver.get("https://www.saucedemo.com/");
 	}
 	
 	public String getErrorMessage()
